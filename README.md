@@ -35,22 +35,11 @@ npm i express
 
 ## 🛠 Documentar
 ✍Colocar la documentacion de los endpoint en la carpeta docs. Separar por cada modelo. La estructura es la siguiente
-    ```
+ 
    🐙 Nombre o titulo del enpoint 
-   ```
-   ```
    🐟 Método Utilizado
-   ```
-   ```
    🦀 Body o headers
-   ```
-   ```
    ✅ Respuestas
-   ```
-   ```
    🤙 Códigos
-   ```
-   ```
    ☠ Errores
-    ```
 
