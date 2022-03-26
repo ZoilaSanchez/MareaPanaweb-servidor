@@ -2,7 +2,7 @@
 
 🍤 Servidor para MareaPana creado con Node, Express y Mongo 
 
-## instalar dependencias ⌛
+## ⌛ Instalar dependencias 
 ```
 npm i nodemon
 ```
@@ -25,4 +25,20 @@ npm i express
 1. Instalar virtualenv ✌
 2. Construir un entorno de virtualenv ⛏
 3. Levantar el entorno de virtualenv (Activar) ✔
+
+
+## 🛠 Iniciar con Tareas
+⚡Si es para una caracteristica nueva crear una rama especifica desde develop, Con la siguiente estructura:
+    `feature/caracteristica `
+⚡Si es para corregir un error crear una rama especifica desde develop, Con la siguiente estructura:
+    `hotfix/correcion `
+
+## 🛠 Documentar
+✍Colocar la documentacion de los endpoint en la carpeta docs. Separar por cada modelo. La estructura es la siguiente
+    `Nombre o titulo del enpoint `
+    `Método Utilizado `
+    `Body o headers `
+    `Respuestas `
+    `Códigos `
+    `Errores `
 
