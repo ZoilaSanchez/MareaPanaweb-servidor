@@ -1,12 +1,14 @@
 const{Schema,model} = require('mongoose')
-
-
+const bcrypt = require('bcrypt')
+const autenticacion=require('../Generales/metodos_generales.js')
+const { v4: uuidv4 } = require('uuid');
+const identifiador =uuidv4().split("-")[1]
 const usuarioSchema = new Schema({
     //campos
     codigo: {
         type: String,
-        required: true,
-        trim:true
+        default:identifiador,
+        trim:true  
       },
     nombre: {
         type: String,
@@ -15,23 +17,23 @@ const usuarioSchema = new Schema({
       },
       password: {
         type: String,
-        required: false,
+        required: true,
         trim:true
       },
       email: {
         type: String,
-        required: false,
+        required: true,
         unique: true,
         trim:true
       },
       telefono: {
         type: String,
-        default: null,
+        default: "",
         trim: true,
       },
       token: {
         type: String,
-        trim: true,
+        default: autenticacion()
       },
       confirmado: {
         type: Boolean,
@@ -44,6 +46,17 @@ const usuarioSchema = new Schema({
       }
 );
 
+usuarioSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) {
+    next();
+  }
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+});
+
+usuarioSchema.methods.comprobarPassword = async function (passwordFormulario) {
+  return await bcrypt.compare(passwordFormulario, this.password);
+};
 
 module.exports = model("Usuario", usuarioSchema);
 
