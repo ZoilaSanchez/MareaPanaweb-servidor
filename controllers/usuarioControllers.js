@@ -60,18 +60,57 @@ usarCtrl.confirmar_user = async (req, res) => {
     }
   };
 
-
-  usarCtrl.actualizar = async (req, res) => {
-    const { id } = req.params;
-    // prevenir tareas duplicadas
-    console.log(id)
-    const usuario =  await Usuario.findById(id);
-
+  usarCtrl.login = async (req, res) => {
+    const {email, password } = req.body;
+  
+    //comprobando si el usuario existe
+    const usuario = await Usuario.findOne({ email });
+  
     if (!usuario) {
-      const error = new Error("Usuario no existente");
-      return res.status(400).json({ msg: error.message });
+      const error = new Error("El usuario no existe");
+      return res.status(404).json({ msg: error.message });
     }
- 
+    
+    if (usuario.email.toString() !== req.body.email.toString()) {
+        const error = new Error("Las credenciales no son correctas");
+        return res.status(403).json({msg: error.message});
+      }
+
+    // comprobar si el usuario esta confirmado
+    if (!usuario.confirmado) {
+      const error = new Error("Revise su email, la cuenta no ha sido confirmada");
+      return res.status(403).json({ msg: error.message });
+    }
+
+    // Revisar al password
+    if (await usuario.comprobarPassword(password)) {
+      // autenticar
+  
+      res.json({
+        _id: usuario._id,
+        nombre: usuario.nombre,
+        email: usuario.email,
+        codigo:  usuario.codigo
+       /* token: generarJWT(usuario._id),*/
+      });
+    } else {
+      const error = new Error("El password es incorrecto");
+      return res.status(403).json({ msg: error.message });
+    }
+  };
+
+
+  usarCtrl.actualizar_info = async (req, res) => {
+    const { codigo } = req.params;
+    // prevenir tareas duplicadas
+    const usuario_token = await Usuario.findOne({ codigo });
+  
+    if (!usuario_token) {
+      const error = new Error("Codigo incorrecto");
+      return res.status(404).json({ msg: error.message });
+    }
+
+    const usuario =  await Usuario.findById(usuario_token.id);
     usuario.nombre = req.body.nombre || usuario.nombre;
     usuario.password = req.body.password || usuario.password;
     usuario.telefono=req.body.telefono || usuario.telefono;
@@ -88,22 +127,27 @@ usarCtrl.confirmar_user = async (req, res) => {
 
 
   usarCtrl.actualizar_email = async (req, res) => {
-    const {codigo,email} =req.body;
-   
+    const {email} =req.body;
+    const { codigo } = req.params;
+    // prevenir tareas duplicadas
+    const usuario_codigo = await Usuario.findOne({ codigo });
+    if (!usuario_codigo) {
+      const error = new Error("Codigo incorrecto");
+      return res.status(404).json({ msg: error.message });
+    }
+
     const existeUsuario = await Usuario.findOne({ email });
     if (existeUsuario) {
         const error = new Error("Email ya registrado");
         return res.status(400).json({ msg: error.message });
     }
-    const existe_usuario = await Usuario.findOne({ codigo });
     try {
         // guardar usuario
-        existe_usuario.email = req.body.email;
-        
-        const nombre= existe_usuario.nombre;
-        existe_usuario.token =  autenticacion();
-        existe_usuario.confirmado = false;
-        const usuarioActualizada = await existe_usuario.save();
+        usuario_codigo.email =req.body.email;
+        const nombre= usuario_codigo.nombre;
+        usuario_codigo.token =  autenticacion();
+        usuario_codigo.confirmado = false;
+        const usuarioActualizada = await usuario_codigo.save();
         // enviar email al usuario para ser confirmado
         mail({
           email,
@@ -118,7 +162,21 @@ usarCtrl.confirmar_user = async (req, res) => {
   };
 
 
+  usarCtrl.comprobar_token = async (req, res) => {
+    const { token } = req.params;
   
+    const tokenValido = await Usuario.findOne({ token });
+  
+    if (tokenValido) {
+      res.json({ msg: "Token válido" });
+    } else {
+      const error = new Error("Token no válido");
+      return res.status(400).json({ msg: error.message });
+    }
+  };
+
+
+
   usarCtrl.actualizar_password= async (req, res) => {
     const {codigo,email} =req.body;
    
@@ -169,67 +227,12 @@ usarCtrl.confirmar_user = async (req, res) => {
       console.log(error);
     }
   };
-
-
-  usarCtrl.comprobar_token = async (req, res) => {
-    const { token } = req.params;
-  
-    const tokenValido = await Usuario.findOne({ token });
-  
-    if (tokenValido) {
-      res.json({ msg: "Token válido" });
-    } else {
-      const error = new Error("Token no válido");
-      return res.status(400).json({ msg: error.message });
-    }
-  };
-
-  usarCtrl.login = async (req, res) => {
-    const {codigo, email, password } = req.body;
-  
-    //comprobando si el usuario existe
-    const usuario = await Usuario.findOne({ email });
-  
-    if (!usuario) {
-      const error = new Error("El usuario no existe");
-      return res.status(404).json({ msg: error.message });
-    }
-    
-    if (usuario.codigo.toString() !== req.body.codigo.toString()) {
-        const error = new Error("Las credenciales no son correctas");
-        return res.status(403).json({msg: error.message});
-      }
-
-    // comprobar si el usuario esta confirmado
-    if (!usuario.confirmado) {
-      const error = new Error("Revise su email, la cuenta no ha sido confirmada");
-      return res.status(403).json({ msg: error.message });
-    }
-
-    // Revisar al password
-    if (await usuario.comprobarPassword(password)) {
-      // autenticar
-  
-      res.json({
-        _id: usuario._id,
-        nombre: usuario.nombre,
-        email: usuario.email,
-        codigo:  usuario.codigo
-       /* token: generarJWT(usuario._id),*/
-      });
-    } else {
-      const error = new Error("El password es incorrecto");
-      return res.status(403).json({ msg: error.message });
-    }
-  };
-
   
 
 usarCtrl.recuperarCodigo = async (req, res) => {
   const {email} =req.body;
-   console.log(email)
   const existeUsuario = await Usuario.findOne({ email });
- console.log(existeUsuario)
+ 
   if (!existeUsuario) {
       const error = new Error("Email no existe");
       return res.status(400).json({ msg: error.message });
