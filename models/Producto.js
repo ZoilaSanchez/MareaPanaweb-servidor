@@ -1,5 +1,5 @@
- const { Schema, model } = require('mongoose')
-const {appConfig} = require('../config')
+const { Schema, model } = require('mongoose')
+const { appConfig } = require('../config')
 const productoSchema = new Schema({
   //campos
   codigo: {
@@ -39,11 +39,11 @@ const productoSchema = new Schema({
   }
 }
 );
-
+/*
 productoSchema.methods.setImgUrl=function setImgUrl (filename) {
   const {host,port} = appConfig
   this.imgUrl=`${host}:${port}/public/${filename}`
-}
+}*/
 module.exports = model("Producto", productoSchema);
 
 

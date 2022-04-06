@@ -5,13 +5,13 @@ const Producto=require('../models/Producto')
 
 usarCtrl.getProducto=async(req,res)=>{
     const productos=await Producto.find();
-    res.json(productos);
+    return res.status(200).json({ productos });
 }
 
 usarCtrl.crearProducto=async(req,res)=>{
-    const {codigo,nombre,descripcion,precio,existencia,estado,imgUrl} =req.body;
+    const {} =req.body;
 
-    const nuevoProducto=new Producto({
+   /* const nuevoProducto=new Producto({
         codigo: codigo,
         nombre:nombre,
         descripcion:descripcion,
@@ -19,14 +19,15 @@ usarCtrl.crearProducto=async(req,res)=>{
         existencia: existencia,
         estado: estado,
         imgUrl: imgUrl
-    })
+    })*/
 
-    if (req.file){
+   /* if (req.file){
         const {filename}=req.file
         nuevoProducto.setImgUrl(filename)
-    }
-    await nuevoProducto.save();
-    res.send("el producto fue guardado")
+    }*/
+    const nuevoProducto = new Producto(req.body);
+    const productoGuardado = await nuevoProducto.save();
+    res.json(productoGuardado);
 }
 
 
