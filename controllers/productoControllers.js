@@ -5,7 +5,7 @@ const Producto=require('../models/Producto')
 
 usarCtrl.getProducto=async(req,res)=>{
     const productos=await Producto.find();
-    res.json(productos);
+    return res.status(200).json({ productos });
 }
 
 usarCtrl.crearProducto=async(req,res)=>{
