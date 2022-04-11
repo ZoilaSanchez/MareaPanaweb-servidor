@@ -2,12 +2,17 @@ const {Router} = require('express')
 
 const router = Router();
 
-const {getProducto,crearProducto} = require('../controllers/productoControllers')
+const {getProducto,crearProducto, actualizar_info,eliminar_producto} = require('../controllers/productoControllers')
 
 router.route('/')
 .get(getProducto)
 .post(crearProducto)
 
+router.route('/actualizar-info/:codigo').
+put(actualizar_info)
+
+router.route('/eliminar_producto/:codigo').
+delete(eliminar_producto)
 /*router.route('/:id')
 .get()
 .delete()
