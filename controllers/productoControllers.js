@@ -46,7 +46,7 @@ usarCtrl.actualizar_info = async (req, res) => {
   producto.nombre = req.body.nombre || producto.nombre;
   producto.descripcion = req.body.descripcion || producto.descripcion;
   producto.precio = req.body.precio || producto.precio;
-  producto.existencia = req.body.existencia || producto.existencia;
+/*  producto.existencia = req.body.existencia || producto.existencia;*/
   producto.estado = req.body.estado || producto.estado;
   producto.imgUrl = req.body.imgUrl || producto.imgUrl;
   try {

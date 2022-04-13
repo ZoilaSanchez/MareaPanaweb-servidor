@@ -23,11 +23,6 @@ const productoSchema = new Schema({
     required: false,
     trim: true
   },
-  existencia: {
-    type: Number,
-    required: false,
-    trim: true,
-  },
   estado: {
     type: Boolean,
     required: false,
