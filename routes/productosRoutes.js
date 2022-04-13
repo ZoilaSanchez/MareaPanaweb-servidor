@@ -8,10 +8,10 @@ router.route('/')
 .get(getProducto)
 .post(crearProducto)
 
-router.route('/actualizar-info/:codigo').
+router.route('/actualizar/:codigo').
 put(actualizar_info)
 
-router.route('/eliminar_producto/:codigo').
+router.route('/eliminar/:codigo').
 delete(eliminar_producto)
 /*router.route('/:id')
 .get()

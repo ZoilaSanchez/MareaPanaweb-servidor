@@ -59,19 +59,19 @@ usarCtrl.actualizar_info = async (req, res) => {
 
 usarCtrl.eliminar_producto = async (req, res) => {
   const { codigo } = req.params;
-  console.info(codigo);
   // prevenir tareas duplicadas
-  const producto_token = await Producto.findOne({ codigo });
-  console.info(producto_token);
-  if (!producto_token) {
+  const existe_producto = await Producto.findOne({ codigo });
+
+  if (!existe_producto) {
     const error = new Error("Codigo incorrecto");
     return res.status(404).json({ msg: error.message });
   }
 
-  const producto =  await Producto.findById(producto_token.id);
+  const producto =  await Producto.findById(existe_producto.id);
   try {
-    const productoEliminado = await producto.remove;
-    res.json(productoEliminado)
+    await producto.deleteOne()
+
+    res.json({ msg: "Producto eliminado correctamente" });
   } catch (error) {
     console.log(error);
   }

@@ -5,7 +5,7 @@ const app=express()
 
 
 //Configuraciones
-app.set('port',process.env.PORT || 9000 ) //8000
+app.set('port',process.env.PORT || 8000 ) //8000
 
 // middlewares
 app.use(cors()) 
