@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose')
 const { appConfig } = require('../config')
+
 const productoSchema = new Schema({
   //campos
   codigo: {
@@ -22,11 +23,6 @@ const productoSchema = new Schema({
     required: false,
     trim: true
   },
-  existencia: {
-    type: Number,
-    required: false,
-    trim: true,
-  },
   estado: {
     type: Boolean,
     required: false,
@@ -37,7 +33,10 @@ const productoSchema = new Schema({
     required: false,
     trim: true
   }
-}
+},
+  {
+    timestamps: true,
+  }
 );
 /*
 productoSchema.methods.setImgUrl=function setImgUrl (filename) {
