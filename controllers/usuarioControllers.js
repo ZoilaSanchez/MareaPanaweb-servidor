@@ -5,7 +5,9 @@ const mail=require('../Generales/send_mail')
 const recuperar=require('../Generales/actualizar_pass')
 const emailCodigo=require('../Generales/send_codigo')
 const autenticacion=require('../Generales/metodos_generales')
+const generarJwt=require('../Generales/generarJWT.js')
 const { v4: uuidv4 } = require('uuid');
+
 
 
 
@@ -85,13 +87,15 @@ usarCtrl.confirmar_user = async (req, res) => {
     // Revisar al password
     if (await usuario.comprobarPassword(password)) {
       // autenticar
-  
+    
+
+
       res.json({
         _id: usuario._id,
         nombre: usuario.nombre,
         email: usuario.email,
-        codigo:  usuario.codigo
-       /* token: generarJWT(usuario._id),*/
+        codigo:  usuario.codigo,
+        token: generarJwt(usuario._id),
       });
     } else {
       const error = new Error("El password es incorrecto");
