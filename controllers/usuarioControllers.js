@@ -271,8 +271,7 @@ usarCtrl.habilitarUsuarios = async (req, res) => {
 
   try {
       // guardar usuario
-      
-      existeUsuario.estado = req.body.estado ;
+     existeUsuario.estado = req.body.estado ;
       await existeUsuario.save();
 
   
