@@ -260,5 +260,26 @@ usarCtrl.recuperarCodigo = async (req, res) => {
     }
 };
 
+usarCtrl.habilitarUsuarios = async (req, res) => {
+  const {email} =req.body;
+  const existeUsuario = await Usuario.findOne({ email });
+ 
+  if (!existeUsuario) {
+      const error = new Error("Email no existe");
+      return res.status(400).json({ msg: error.message });
+  }
+
+  try {
+      // guardar usuario
+      
+      existeUsuario.estado = req.body.estado ;
+      await existeUsuario.save();
+
+  
+      res.json(existeUsuario);
+    } catch (error) {
+      console.log(error);
+    }
+};
 
 module.exports = usarCtrl;
