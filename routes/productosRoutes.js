@@ -1,18 +1,18 @@
 const {Router} = require('express')
 
+const autenticacion=require('../Generales/rutas_protegidas')
 const router = Router();
 
 const {getProducto,crearProducto, actualizar_info,eliminar_producto} = require('../controllers/productoControllers')
 
-router.route('/')
-.get(getProducto)
-.post(crearProducto)
+router.get('/',autenticacion, getProducto)
+router.post('/',autenticacion, crearProducto)
 
-router.route('/actualizar/:codigo').
-put(actualizar_info)
+router.put('/actualizar/:codigo',autenticacion, actualizar_info)
 
-router.route('/eliminar/:codigo').
-delete(eliminar_producto)
+router.delete('/eliminar/:codigo',autenticacion, eliminar_producto)
+
+
 /*router.route('/:id')
 .get()
 .delete()

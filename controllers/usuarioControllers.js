@@ -5,7 +5,9 @@ const mail=require('../Generales/send_mail')
 const recuperar=require('../Generales/actualizar_pass')
 const emailCodigo=require('../Generales/send_codigo')
 const autenticacion=require('../Generales/metodos_generales')
+const generarJwt=require('../Generales/generarJWT.js')
 const { v4: uuidv4 } = require('uuid');
+
 
 
 
@@ -13,6 +15,21 @@ usarCtrl.getUsuario=async(req,res)=>{
     const usuarios=await Usuario.find();
     return res.status(200).json({ usuarios });
 }
+
+usarCtrl.getUsuarioEspecifico=async(req,res)=>{
+  const {email} = req.body;
+  
+    //comprobando si el usuario existe
+    const usuario = await Usuario.findOne({ email });
+  
+    if (!usuario) {
+      const error = new Error("El usuario no existe");
+      return res.status(404).json({ msg: error.message });
+    }
+    return res.status(200).json({ usuario });
+    // Revisar al password
+    
+};
 
 usarCtrl.crearUsuario=async(req,res)=>{
     const {email,nombre} =req.body;
@@ -85,13 +102,15 @@ usarCtrl.confirmar_user = async (req, res) => {
     // Revisar al password
     if (await usuario.comprobarPassword(password)) {
       // autenticar
-  
+    
+
+
       res.json({
         _id: usuario._id,
         nombre: usuario.nombre,
         email: usuario.email,
-        codigo:  usuario.codigo
-       /* token: generarJWT(usuario._id),*/
+        codigo:  usuario.codigo,
+        token: generarJwt(usuario._id),
       });
     } else {
       const error = new Error("El password es incorrecto");
@@ -256,5 +275,25 @@ usarCtrl.recuperarCodigo = async (req, res) => {
     }
 };
 
+usarCtrl.habilitarUsuarios = async (req, res) => {
+  const {email} =req.body;
+  const existeUsuario = await Usuario.findOne({ email });
+ 
+  if (!existeUsuario) {
+      const error = new Error("Email no existe");
+      return res.status(400).json({ msg: error.message });
+  }
+
+  try {
+      // guardar usuario
+     existeUsuario.estado = req.body.estado ;
+      await existeUsuario.save();
+
+  
+      res.json(existeUsuario);
+    } catch (error) {
+      console.log(error);
+    }
+};
 
 module.exports = usarCtrl;
