@@ -110,6 +110,7 @@ usarCtrl.confirmar_user = async (req, res) => {
         nombre: usuario.nombre,
         email: usuario.email,
         codigo:  usuario.codigo,
+        puesto:  usuario.puesto,
         token: generarJwt(usuario._id),
       });
     } else {
@@ -133,6 +134,7 @@ usarCtrl.confirmar_user = async (req, res) => {
     usuario.nombre = req.body.nombre || usuario.nombre;
     usuario.password = req.body.password || usuario.password;
     usuario.telefono=req.body.telefono || usuario.telefono;
+    usuario.puesto=req.body.puesto || usuario.puesto;
 
   
     try {
