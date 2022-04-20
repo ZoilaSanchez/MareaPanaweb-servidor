@@ -9,7 +9,7 @@ router.route('/')
 .post(crearUsuario)
 
 router.route('/email/')
-.get(getUsuarioEspecifico)
+.post(getUsuarioEspecifico)
 
 router.route('/confirmar/:token').
 get(confirmar_user)
