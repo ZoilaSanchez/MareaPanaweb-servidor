@@ -1,17 +1,17 @@
 const usarCtrl= {};
 
 const Producto=require('../models/Producto')
-
+const { v4: uuidv4 } = require('uuid');
+const identificador =uuidv4().split("-")[1]
 
 usarCtrl.getProducto=async(req,res)=>{
     const productos=await Producto.find();
-    res.json(productos);
+    return res.status(200).json({ productos });
 }
 
 usarCtrl.crearProducto=async(req,res)=>{
-    const {codigo,nombre,descripcion,precio,existencia,estado,imgUrl} =req.body;
 
-    const nuevoProducto=new Producto({
+   /* const nuevoProducto=new Producto({
         codigo: codigo,
         nombre:nombre,
         descripcion:descripcion,
@@ -19,16 +19,63 @@ usarCtrl.crearProducto=async(req,res)=>{
         existencia: existencia,
         estado: estado,
         imgUrl: imgUrl
-    })
+    })*/
 
-    if (req.file){
+   /* if (req.file){
         const {filename}=req.file
         nuevoProducto.setImgUrl(filename)
-    }
-    await nuevoProducto.save();
-    res.send("el producto fue guardado")
+    }*/
+    const nuevoProducto = new Producto(req.body);
+    nuevoProducto.codigo= req.body.codigo+"-"+identificador;
+    const productoGuardado = await nuevoProducto.save();
+    res.json(productoGuardado);
 }
 
+usarCtrl.actualizar_info = async (req, res) => {
+  const { codigo } = req.params;
+  console.info(codigo);
+  // prevenir tareas duplicadas
+  const producto_token = await Producto.findOne({ codigo });
+  console.info(producto_token);
+  if (!producto_token) {
+    const error = new Error("Codigo incorrecto");
+    return res.status(404).json({ msg: error.message });
+  }
+
+  const producto =  await Producto.findById(producto_token.id);
+  producto.nombre = req.body.nombre || producto.nombre;
+  producto.descripcion = req.body.descripcion || producto.descripcion;
+  producto.precio = req.body.precio || producto.precio;
+/*  producto.existencia = req.body.existencia || producto.existencia;*/
+  producto.estado = req.body.estado || producto.estado;
+  producto.imgUrl = req.body.imgUrl || producto.imgUrl;
+  try {
+    const productoActualizado = await producto.save();
+    res.json(productoActualizado)
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+usarCtrl.eliminar_producto = async (req, res) => {
+  const { codigo } = req.params;
+  // prevenir tareas duplicadas
+  const existe_producto = await Producto.findOne({ codigo });
+
+  if (!existe_producto) {
+    const error = new Error("Codigo incorrecto");
+    return res.status(404).json({ msg: error.message });
+  }
+
+  const producto =  await Producto.findById(existe_producto.id);
+  try {
+    await producto.deleteOne()
+
+    res.json({ msg: "Producto eliminado correctamente" });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 module.exports = usarCtrl;
 

@@ -2,11 +2,14 @@ const {Router} = require('express')
 
 const router = Router();
 
-const {getUsuario,crearUsuario,confirmar_user,actualizar_info,actualizar_email,actualizar_password,nuevaPass,comprobar_token,login,recuperarCodigo} = require('../controllers/usuarioControllers')
+const {getUsuario,crearUsuario,confirmar_user,actualizar_info,actualizar_email,actualizar_password,nuevaPass,comprobar_token,login,recuperarCodigo,habilitarUsuarios,getUsuarioEspecifico} = require('../controllers/usuarioControllers')
 
 router.route('/')
 .get(getUsuario)
 .post(crearUsuario)
+
+router.route('/email/')
+.post(getUsuarioEspecifico)
 
 router.route('/confirmar/:token').
 get(confirmar_user)
@@ -26,5 +29,7 @@ router.route('/login').post(login)
 
 
 router.route('/codigo').put(recuperarCodigo)
+
+router.route('/estado').put(habilitarUsuarios)
 
 module.exports =router;

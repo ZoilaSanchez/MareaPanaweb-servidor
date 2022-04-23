@@ -1,11 +1,12 @@
 const express = require('express')
 const cors=require('cors') 
+
 //const fileUpload=require('express-fileupload')
 const app=express()
 
 
 //Configuraciones
-app.set('port',process.env.PORT || 8000 ) //9000
+app.set('port',process.env.PORT || 8000 ) //8000
 
 // middlewares
 app.use(cors()) 
