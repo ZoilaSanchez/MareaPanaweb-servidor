@@ -1,0 +1,7 @@
+******************** Actualizar codigo ********************
+
+PUT https://mareapanaweb-servidor.herokuapp.com/api/usuarios/codigo
+
+Respuesta 200
+"Revise su mail"
+

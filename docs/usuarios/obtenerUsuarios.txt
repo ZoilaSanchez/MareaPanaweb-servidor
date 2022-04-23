@@ -1,0 +1,40 @@
+******************** Obtener usuarios ********************
+
+GET https://mareapanaweb-servidor.herokuapp.com/api/usuarios/
+
+Respuesta: 200
+
+{
+	"usuarios": [
+		{
+			"puesto": "",
+			"estado": true,
+			"_id": "62466ae9982617224aae93cb",
+			"codigo": "b1c9",
+			"nombre": "estefany",
+			"password": "$2b$10$X5OBEFwcXzxscQRCj8nmGu9HM/rjI5fmDOUpsX9.XrtBpuNllUzQa",
+			"email": "a@gmail.com",
+			"telefono": "37917114",
+			"token": null,
+			"confirmado": true,
+			"createdAt": "2022-04-01T03:00:57.647Z",
+			"updatedAt": "2022-04-01T03:31:14.256Z",
+			"__v": 0
+		},
+		{
+			"puesto": "",
+			"estado": true,
+			"_id": "625c7cb01ef0d7fe2a9622df",
+			"codigo": "231c",
+			"nombre": "zoili",
+			"password": "$2b$10$fL.g8.wCFJZ3OlXZE7Ls/u33oyPchZk3gXqZrdbZVrMVKuWYYU2Ka",
+			"email": "zesanchez1998@gmail.com",
+			"telefono": "",
+			"token": null,
+			"confirmado": true,
+			"createdAt": "2022-04-17T20:46:40.610Z",
+			"updatedAt": "2022-04-17T20:47:42.079Z",
+			"__v": 0
+		}
+	]
+}

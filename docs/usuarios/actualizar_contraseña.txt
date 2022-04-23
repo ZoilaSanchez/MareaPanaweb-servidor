@@ -1,0 +1,15 @@
+******************** Actualizar contraseña ********************
+
+PUT https://mareapanaweb-servidor.herokuapp.com/api/usuarios/act-pass/codigo
+
+codigo-- fue enviado por email
+
+Respuesta 200
+{
+	"msg": "Contraseña actualizada correctamente"
+}
+
+Error 400 - codigo incorrecto
+{
+	"msg": "Hubo un error"
+}

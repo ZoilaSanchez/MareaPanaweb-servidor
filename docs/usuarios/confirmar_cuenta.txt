@@ -1,0 +1,17 @@
+
+******************** Confirmar cuenta ********************
+
+GET https://mareapanaweb-servidor.herokuapp.com/api/usuarios/confirmar/token_mail
+
+- token_mail: token enviado por email
+
+
+Respuesta : 200
+{
+	"msg": "Bienvenido a Mareapana web"
+}
+
+Error: 404
+{
+	"msg": "Token incorrecto"
+}

@@ -1,0 +1,33 @@
+******************** Crear ********************
+
+POST https://mareapanaweb-servidor.herokuapp.com/api/usuarios/
+
+Body
+{
+    "nombre":"zoili",
+    "email":"dssd@gmail.com",
+	"password":"nuevo",
+	"puesto":"administrador"
+}
+
+Respuesta 200
+{
+	"codigo": "a1aa",
+	"nombre": "zoili",
+	"password": "$2b$10$S7zRbZmJ30jTWKSkX4yppO2s/vu6mHevGcjVSJVkm/BBtHUxgZYzC",
+	"email": "dssd@gmail.com",
+	"telefono": "",
+	"token": "1g1afe4185bggrm3v8n8",
+	"confirmado": false,
+	"puesto": "administrador",
+	"estado": true,
+	"_id": "62639348812a211c5463d7c0",
+	"createdAt": "2022-04-23T05:48:56.490Z",
+	"updatedAt": "2022-04-23T05:48:56.490Z",
+	"__v": 0
+}
+
+Errores: 400 -- duplicidad de email
+{
+	"msg": "Usuario ya registrado"
+}

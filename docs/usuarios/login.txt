@@ -1,0 +1,41 @@
+******************** Login ********************
+
+POST https://mareapanaweb-servidor.herokuapp.com/api/usuarios/login
+
+Body:
+{
+	"email":"ejemplo@gmail.com",
+    "password":"nuevo"
+}
+email : correo registrado
+password: contraseña
+
+Respuesta
+Codigo : 200
+{
+	"_id": "625c7cb01ef0d7fe2a9622df",
+	"nombre": "zoili",
+	"email": "zesanchez1998@gmail.com",
+	"codigo": "231c",
+	"puesto": "",
+	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWM3Y2IwMWVmMGQ3ZmUyYTk2MjJkZiIsImlhdCI6MTY1MDY5MzE3NCwiZXhwIjoxNjUzMjg1MTc0fQ.wU4yc-23VPKAO_TnV8vnSSkR4Kt9ZO48Hl0BBz-B4qI"
+}
+
+Importante:
+- token: este token es por seguridad, siempre va en el header o en Bearer(postman)
+
+Codigo: 403 - no es correcta la contraseña
+{
+	"msg": "El password es incorrecto"
+}
+
+Codigo: 403 - cuando el usuario no existe o no esta registrado
+{
+	"msg": "El usuario no existe"
+}
+Codigo: 403 -- cuenta no activa
+{
+	"msg": "Revise su email, la cuenta no ha sido confirmada"
+}
+
+

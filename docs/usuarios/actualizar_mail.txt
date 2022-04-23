@@ -1,0 +1,30 @@
+******************** Actualizar correo  ********************
+
+PUT https://mareapanaweb-servidor.herokuapp.com/api/usuarios/email/codigo
+
+Respuesta 200
+{
+	"_id": "62639348812a211c5463d7c0",
+	"codigo": "a1aa",
+	"nombre": "zoili",
+	"password": "$2b$10$S7zRbZmJ30jTWKSkX4yppO2s/vu6mHevGcjVSJVkm/BBtHUxgZYzC",
+	"email": "zoilisssolis2@gmail.com",
+	"telefono": "",
+	"token": "1g1agm22s88j0eqcpej8",
+	"confirmado": false,
+	"puesto": "administrador",
+	"estado": true,
+	"createdAt": "2022-04-23T05:48:56.490Z",
+	"updatedAt": "2022-04-23T06:10:28.061Z",
+	"__v": 0
+}
+
+
+Error: 404 - codigo de empleado es incorrecto
+{
+	"msg": "Codigo incorrecto"
+}
+Error 404 - correo ya existe
+{
+	"msg": "Email ya registrado"
+}

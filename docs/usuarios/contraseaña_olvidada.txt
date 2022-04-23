@@ -1,0 +1,11 @@
+******************** Actualizar contraseña ********************
+
+PUT https://mareapanaweb-servidor.herokuapp.com/api/usuarios/act-pass
+
+Respuesta 200
+"Revise su mail"
+
+Errores: 403
+{
+	"msg": "Las credenciales no son correctas"
+}

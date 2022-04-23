@@ -1,0 +1,12 @@
+******************** Actualizar Informacion ********************
+
+PUT https://mareapanaweb-servidor.herokuapp.com/api/usuarios/actualizar-info/codigo
+
+codigo -- codigo de usuario 
+
+Body
+{
+    "nombre":"estefany",
+    "telefono":37917114
+}
+

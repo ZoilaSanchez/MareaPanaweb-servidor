@@ -1,0 +1,25 @@
+******************** Actualizar estado ********************
+
+PUT https://mareapanaweb-servidor.herokuapp.com/api/usuarios/estado
+
+{
+    "email":"zoilissolis2@gmail.com",
+	"estado":true
+}
+
+Respuesta 200
+{
+	"_id": "625ef154b695919ef48c261c",
+	"codigo": "7452",
+	"nombre": "zoili",
+	"password": "$2b$10$H9BNmKjcPIH4MtE8X..5AuFm63JlQcecqYXiccUcA9wWnyWnchorm",
+	"email": "zoilissolis2@gmail.com",
+	"telefono": "",
+	"token": "1g11do8uk6ibqtr73ct8",
+	"confirmado": false,
+	"puesto": "",
+	"estado": true,
+	"createdAt": "2022-04-19T17:28:52.216Z",
+	"updatedAt": "2022-04-19T17:29:43.577Z",
+	"__v": 0
+}
