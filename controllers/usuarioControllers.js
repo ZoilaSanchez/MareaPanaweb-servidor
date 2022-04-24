@@ -135,7 +135,6 @@ usarCtrl.confirmar_user = async (req, res) => {
     usuario.password = req.body.password || usuario.password;
     usuario.telefono=req.body.telefono || usuario.telefono;
     usuario.puesto=req.body.puesto || usuario.puesto;
-
   
     try {
       const usuarioActualizada = await usuario.save();
