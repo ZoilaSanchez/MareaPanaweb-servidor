@@ -14,7 +14,7 @@ router.route('/email/')
 router.route('/confirmar/:token').
 get(confirmar_user)
 
-router.route('/actualizar-info/').
+router.route('/actualizar-info/:codigo').
 put(actualizar_info)
 
 router.route('/email/:codigo').
