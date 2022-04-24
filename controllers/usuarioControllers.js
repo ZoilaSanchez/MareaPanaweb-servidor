@@ -121,9 +121,9 @@ usarCtrl.confirmar_user = async (req, res) => {
 
 
   usarCtrl.actualizar_info = async (req, res) => {
-    const { codigo } = req.params;
+    const { email } =  req.body;
     // prevenir tareas duplicadas
-    const usuario_token = await Usuario.findOne({ codigo });
+    const usuario_token = await Usuario.findOne({ email });
   
     if (!usuario_token) {
       const error = new Error("Codigo incorrecto");
