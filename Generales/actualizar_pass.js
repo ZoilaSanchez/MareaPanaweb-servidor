@@ -21,8 +21,11 @@ const actualizar_pass = async (datos) => {
     subject: "Restablecer tu password",
     text: "Restablecer tu password",
     html: `<p>Hola: ${nombre}, solicitaste el cambio de contraseña.</p>
+        
+        <p>Token: ${token}</p>
         <p>sigue el siguiente password para generar un nuevo password:
-        <a href="${process.env.FRONTEND_URL}/act-pass/${token}">Restablecer password</a> </p>
+
+        <a href="${process.env.FRONTEND_URL}">Restablecer password</a> </p>
 
         <p> Si el presente correo no presenta lo hablado, omitalo </p>
       `,

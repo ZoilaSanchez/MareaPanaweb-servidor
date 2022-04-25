@@ -98,6 +98,10 @@ usarCtrl.confirmar_user = async (req, res) => {
       const error = new Error("Revise su email, la cuenta no ha sido confirmada");
       return res.status(403).json({ msg: error.message });
     }
+    if (!usuario.estado) {
+      const error = new Error("Su cuenta se encuentra desactivada.");
+      return res.status(403).json({ msg: error.message });
+    }
 
     // Revisar al password
     if (await usuario.comprobarPassword(password)) {
