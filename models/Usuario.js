@@ -42,7 +42,6 @@ const usuarioSchema = new Schema({
       puesto: {
         type: String,
         default: "",
-        trim:true
       },
       estado: {
         type: Boolean,
