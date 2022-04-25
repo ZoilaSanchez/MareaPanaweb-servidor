@@ -42,7 +42,6 @@ const usuarioSchema = new Schema({
       puesto: {
         type: String,
         default: "",
-        unique: true,
         trim:true
       },
       estado: {
