@@ -321,7 +321,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 58px 5px 60px;font-family:arial,helvetica,sans-serif;" align="left">
         
   <div style="color: #333333; line-height: 180%; text-align: center; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 180%;"><span style="font-family: Montserrat, sans-serif; font-size: 18px; line-height: 32.4px;">H<span style="line-height: 32.4px; font-size: 18px;">ola <strong>${nombre}</strong>, bienvenido al <strong>equipo de MareaPana</strong>.</span></span><br /><span style="font-family: Montserrat, sans-serif; font-size: 18px; line-height: 32.4px;">Tu token de Activaci&oacute;n es <strong>${token}</strong>.</span></p>
+    <p style="font-size: 14px; line-height: 180%;"><span style="font-family: Montserrat, sans-serif; font-size: 18px; line-height: 32.4px;">H<span style="line-height: 32.4px; font-size: 18px;"> Hola <strong>${nombre}</strong>, bienvenido al <strong>equipo de MareaPana</strong>.</span></span><br /><span style="font-family: Montserrat, sans-serif; font-size: 18px; line-height: 32.4px;">Tu token de Activaci&oacute;n es <strong>${token}</strong>.</span></p>
 <p style="font-size: 14px; line-height: 180%;"><span style="font-family: Montserrat, sans-serif; font-size: 18px; line-height: 32.4px;">Activa tu cuenta&nbsp; para disfrutar de la experiencia de MareaPana</span></p>
   </div>
 
