@@ -245,7 +245,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
   <tr>
     <td style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="https://i.ibb.co/g3gct81/image-1.png" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 176px;" width="176" class="v-src-width v-src-max-width"/>
+      <img align="center" border="0" src="https://i.ibb.co/ZgM7YZ7/image-4.jpg" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 176px;" width="176" class="v-src-width v-src-max-width"/>
       
     </td>
   </tr>
@@ -399,7 +399,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
   <tr>
     <td style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="https://i.ibb.co/ZgM7YZ7/image-4.jpg" alt="Software" title="Software" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 165px;" width="165" class="v-src-width v-src-max-width"/>
+      <img align="center" border="0" src="https://i.ibb.co/5G3B3BC/image-6.jpg" alt="Software" title="Software" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 165px;" width="165" class="v-src-width v-src-max-width"/>
       
     </td>
   </tr>
@@ -457,7 +457,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
   <tr>
     <td style="padding-right: 0px;padding-left: 0px;" align="center">
       
-      <img align="center" border="0" src="https://i.ibb.co/3vGLC11/image-2.png" alt="Software" title="Software" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 168px;" width="168" class="v-src-width v-src-max-width"/>
+      <img align="center" border="0" src="https://i.ibb.co/WzRm7x2/image-5.jpg" alt="Software" title="Software" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 168px;" width="168" class="v-src-width v-src-max-width"/>
       
     </td>
   </tr>
@@ -540,7 +540,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
     <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 19px">
       <tbody><tr style="vertical-align: top"><td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
         <a href="https://www.instagram.com/mareapana/" title="Instagram" target="_blank">
-          <img src="https://i.ibb.co/WzRm7x2/image-5.jpg" alt="Instagram" title="Instagram" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+          <img src="https://i.ibb.co/2ZCZ91x/i.png" alt="Instagram" title="Instagram" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
         </a>
       </td></tr>
     </tbody></table>
@@ -550,7 +550,7 @@ table, td { color: #000000; } a { color: #0000ee; text-decoration: underline; } 
     <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 0px">
       <tbody><tr style="vertical-align: top"><td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
         <a href="https://www.facebook.com/mareapana/photos/?ref=page_internal" title="Facebook" target="_blank">
-          <img src="https://i.ibb.co/5G3B3BC/image-6.jpg" alt="Facebook" title="Facebook" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+          <img src="https://i.ibb.co/xmfPF5q/f.png" alt="Facebook" title="Facebook" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
         </a>
       </td></tr>
     </tbody></table>
