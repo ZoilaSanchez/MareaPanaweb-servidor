@@ -7,7 +7,7 @@ const {getUsuario,crearUsuario,confirmar_user,actualizar_info,actualizar_email,a
 router.route('/')
 .get(getUsuario)
 .post(crearUsuario)
-
+// Crear usuario
 router.route('/email/')
 .post(getUsuarioEspecifico)
 
@@ -26,7 +26,6 @@ put(actualizar_password)
 router.route('/act-pass/:token').get(comprobar_token).put(nuevaPass)
 
 router.route('/login').post(login)
-
 
 router.route('/codigo').put(recuperarCodigo)
 
